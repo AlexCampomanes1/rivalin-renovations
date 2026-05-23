@@ -185,3 +185,65 @@ Mentioning these so nobody re-opens them as bugs on Rivalin.
 
 If this folder gets stale and someone needs the absolute current builder
 copy to compare: fetch it the same way it was bootstrapped (see §2).
+
+---
+
+## 11. Assets folder structure — DONE (2026-05-23)
+
+This task is complete. The flat `assets/` layout has been migrated.
+
+### What was done
+
+- All 9 AI-placed Pexels photos moved into **section-named subfolders**
+  with descriptive filenames (no `pexels-` prefix):
+  - `assets/hero/` — 3 hero slideshow photos
+  - `assets/services/` — 3 service-card photos
+  - `assets/highlights/` — 3 highlights-card photos
+- All 9 `<img src>` / `background-image` refs in `index.html` updated.
+- `assets/gallery/` and `assets/before-after/` created as **intentionally
+  empty placeholders**. Production photos for these sections live in Azure
+  blob containers (`gallery`, `before-after`), not in Git.
+- `assets/photo-attribution.json` added — maps each renamed file to its
+  original photographer + Pexels source URL for license compliance.
+
+### Current layout
+
+```
+assets/
+├── logo-1779489623548.jpeg          ← logo (stays at root)
+├── photo-attribution.json           ← Pexels license attribution
+├── hero/                            ← design photos (deploy-managed)
+│   ├── kitchen-minimal-1.jpeg
+│   ├── kitchen-wood-2.jpeg
+│   └── kitchen-contemporary-3.jpeg
+├── services/                        ← design photos
+│   ├── bathroom-marble.jpeg
+│   ├── kitchen-modern.jpeg
+│   └── bathroom-elegant.jpeg
+├── highlights/                      ← design photos
+│   ├── bathroom-glass-shower.jpeg
+│   ├── bathroom-modern.jpeg
+│   └── kitchen-bright.jpeg
+├── about/                           ← empty; About section uses the logo
+├── gallery/                         ← OWNER DATA placeholder (empty in dev)
+│   └── README.md
+└── before-after/                    ← OWNER DATA placeholder (empty in dev)
+    └── README.md
+```
+
+### Hard rules for any future agent
+
+- **NEVER commit photos into `assets/gallery/` or `assets/before-after/`.**
+  Those belong to the site owner and are managed via `admin.html` → Azure blob.
+- Design photos (`assets/hero/`, `assets/services/`, `assets/highlights/`,
+  `assets/about/`) are deploy-managed — safe to swap, resize, or update.
+- The logo at `assets/logo-*` is fine to replace with a new upload.
+- Never rename a design photo without updating the corresponding `<img src>`
+  or `background-image` ref in `index.html` in the same commit.
+
+### Builder port-back
+
+The full spec for carrying this pattern back to the Ultra Flow builder is in
+[BUILDER-SPEC.md](BUILDER-SPEC.md). That document covers the Azure container
+layout, deploy handler changes, manifest schemas, admin template changes,
+and the migration plan for already-deployed sites.

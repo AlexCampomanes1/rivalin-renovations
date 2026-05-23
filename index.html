@@ -51,6 +51,13 @@ nav {
   align-items: center;
 }
 
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
 .nav-logo img {
   height: 50px;
   width: auto;
@@ -61,6 +68,20 @@ nav {
   border-radius: 6px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   box-sizing: content-box;
+  flex-shrink: 0;
+}
+
+.nav-brand {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .nav-logo img { height: 44px; }
+  .nav-brand { font-size: 0.9rem; }
 }
 
 .nav-links {
@@ -782,6 +803,240 @@ nav {
   }
 }
 
+/* Before & After Section */
+#before-after {
+  padding: 6rem 2rem;
+  background: #f8f9fa;
+}
+
+.ba-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.ba-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ba-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: pan-y;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.ba-before,
+.ba-after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ba-before img,
+.ba-after img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.ba-after {
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.05s linear;
+}
+
+.ba-after.animating {
+  transition: clip-path 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background: #fff;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+.ba-handle::before,
+.ba-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.ba-handle::before {
+  right: 6px;
+  transform: translateY(-50%);
+  border-right: 10px solid #fff;
+}
+
+.ba-handle::after {
+  left: 6px;
+  transform: translateY(-50%);
+  border-left: 10px solid #fff;
+}
+
+.ba-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 20;
+  margin: 0;
+}
+
+/* B&A thumbnail click affordance */
+.ba-pair {
+  cursor: zoom-in;
+}
+.ba-pair .ba-slider::after {
+  content: '⛶';
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #fff;
+  font-size: 1.1rem;
+  z-index: 15;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+.ba-pair:hover .ba-slider::after {
+  opacity: 1;
+}
+
+/* B&A fullscreen lightbox */
+#ba-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.93);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+#ba-lightbox.active { display: flex; }
+#ba-lb-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 2001;
+  line-height: 1;
+  opacity: 0.8;
+}
+#ba-lb-close:hover { opacity: 1; }
+.ba-lb-inner {
+  width: 100%;
+  max-width: 1000px;
+  max-height: 90vh;
+}
+
+.ba-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0.75rem;
+  z-index: 5;
+}
+
+.ba-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 3px 8px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.ba-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.ba-caption-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ba-duration {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(44,95,141,0.1);
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.ba-empty {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.ba-project-group {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto 3rem;
+}
+
+.ba-project-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(44,95,141,0.15);
+}
+
+.ba-project-sliders {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 1fr));
+  gap: 2rem;
+}
+
 /* Gallery Section */
 #gallery {
   padding: 6rem 2rem;
@@ -993,15 +1248,17 @@ footer {
 
 <nav id="main-nav">
   <div class="nav-container">
-    <div class="nav-logo">
+    <a href="#hero" class="nav-logo">
       <img src="assets/logo-1779489623548.jpeg" alt="Rivalin Renovations logo">
-    </div>
+      <span class="nav-brand">Rivalin<br>Renovations</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#hero" class="nav-link">Home</a></li>
       <li><a href="#services" class="nav-link">Services</a></li>
       <li><a href="#highlights" class="nav-link">Projects</a></li>
       <li><a href="#about" class="nav-link">About</a></li>
       <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#before-after" class="nav-link">Before &amp; After</a></li>
       <li><a href="#contact" class="cta-btn">Get a Quote</a></li>
     </ul>
     <button id="hamburger">
@@ -1016,14 +1273,15 @@ footer {
     <a href="#highlights" class="nav-link">Projects</a>
     <a href="#about" class="nav-link">About</a>
     <a href="#gallery" class="nav-link">Gallery</a>
+    <a href="#before-after" class="nav-link">Before &amp; After</a>
     <a href="#contact" class="cta-btn">Get a Quote</a>
   </div>
 </nav>
 
 <section id="hero">
-  <div class="hero-slide" style="background-image: url('assets/pexels-photo-20290961.jpeg');"></div>
-  <div class="hero-slide" style="background-image: url('assets/pexels-photo-12119223.jpeg');"></div>
-  <div class="hero-slide" style="background-image: url('assets/pexels-photo-6508353.jpeg');"></div>
+  <div class="hero-slide" style="background-image: url('assets/hero/kitchen-minimal-1.jpeg');"></div>
+  <div class="hero-slide" style="background-image: url('assets/hero/kitchen-wood-2.jpeg');"></div>
+  <div class="hero-slide" style="background-image: url('assets/hero/kitchen-contemporary-3.jpeg');"></div>
   <div class="hero-content">
     <h1>Detailed Home Renovations in Winnipeg</h1>
     <p>28 years of craftsmanship transforming kitchens, bathrooms, basements, and entire homes with meticulous attention to detail</p>
@@ -1062,7 +1320,7 @@ footer {
   </div>
   <div class="services-grid">
     <div class="service-card reveal">
-      <img src="assets/pexels-photo-10827406.jpeg" alt="Spacious bathroom featuring elegant marble shower and dark cabinetry" class="service-visual">
+      <img src="assets/services/bathroom-marble.jpeg" alt="Spacious bathroom featuring elegant marble shower and dark cabinetry" class="service-visual">
       <div class="service-content">
         <h3>Bathroom Renovations</h3>
         <p>Transform your bathroom into a luxurious spa-like retreat. We handle everything from tile work and plumbing to custom vanities and modern fixtures, creating spaces that combine elegance with functionality.</p>
@@ -1070,7 +1328,7 @@ footer {
       </div>
     </div>
     <div class="service-card reveal">
-      <img src="assets/pexels-photo-6489127.jpeg" alt="Interior of modern kitchen with faucet on gray counter and cupboards with illumination" class="service-visual">
+      <img src="assets/services/kitchen-modern.jpeg" alt="Interior of modern kitchen with faucet on gray counter and cupboards with illumination" class="service-visual">
       <div class="service-content">
         <h3>Kitchen Remodeling</h3>
         <p>Design the kitchen of your dreams with custom cabinetry, premium countertops, and modern appliances. We maximize space and create efficient layouts that make cooking and entertaining a pleasure.</p>
@@ -1078,7 +1336,7 @@ footer {
       </div>
     </div>
     <div class="service-card reveal">
-      <img src="assets/pexels-photo-8146152.jpeg" alt="Spacious and elegant marble bathroom featuring a modern bathtub, sink, and glass window" class="service-visual">
+      <img src="assets/services/bathroom-elegant.jpeg" alt="Spacious and elegant marble bathroom featuring a modern bathtub, sink, and glass window" class="service-visual">
       <div class="service-content">
         <h3>Full Home Renovations</h3>
         <p>Complete home transformations including basements, living spaces, and structural remodeling. We work closely with you through every phase to ensure your renovation exceeds expectations.</p>
@@ -1095,7 +1353,7 @@ footer {
   </div>
   <div class="highlights-grid">
     <div class="highlight-card reveal">
-      <img src="assets/pexels-photo-6585603.jpeg" alt="Glass shower cabin in contemporary bathroom with white ceramic toilet bowl and sink and tiled walls decorated with bright lights" class="highlight-image">
+      <img src="assets/highlights/bathroom-glass-shower.jpeg" alt="Glass shower cabin in contemporary bathroom with white ceramic toilet bowl and sink and tiled walls decorated with bright lights" class="highlight-image">
       <div class="highlight-content">
         <span class="highlight-badge">Bathroom</span>
         <h3>Contemporary Spa Retreat</h3>
@@ -1103,7 +1361,7 @@ footer {
       </div>
     </div>
     <div class="highlight-card reveal">
-      <img src="assets/pexels-photo-6980672.jpeg" alt="Modern bathroom interior with shower room against bottles of perfumes and washbasin under mirror reflecting shiny lamp in house" class="highlight-image">
+      <img src="assets/highlights/bathroom-modern.jpeg" alt="Modern bathroom interior with shower room against bottles of perfumes and washbasin under mirror reflecting shiny lamp in house" class="highlight-image">
       <div class="highlight-content">
         <span class="highlight-badge">Full Reno</span>
         <h3>Luxury Master Bath</h3>
@@ -1111,7 +1369,7 @@ footer {
       </div>
     </div>
     <div class="highlight-card reveal">
-      <img src="assets/pexels-photo-5524068.jpeg" alt="Bright and spacious kitchen with white cabinetry and sleek appliances" class="highlight-image">
+      <img src="assets/highlights/kitchen-bright.jpeg" alt="Bright and spacious kitchen with white cabinetry and sleek appliances" class="highlight-image">
       <div class="highlight-content">
         <span class="highlight-badge">Kitchen</span>
         <h3>Bright Modern Kitchen</h3>
@@ -1124,7 +1382,7 @@ footer {
 <section id="about">
   <div class="about-container">
     <div class="about-content reveal">
-      <h2>Built on Craftsmanship & Trust</h2>
+      <h2>Meet Paul — 28 Years of Craftsmanship</h2>
       <p>My renovation journey began during university, building decks and fences to pay for tuition. After moving to Calgary to expand my skills in home renovations, I returned to Winnipeg with a clear vision: build a company focused on meticulous workmanship and helping customers see their dream spaces come to life.</p>
       <p>For 28 years, I've been transforming Winnipeg homes with the same dedication and attention to detail that started it all. Every project is a partnership where we listen, plan carefully, and execute with precision.</p>
       <div class="about-checkpoints">
@@ -1239,6 +1497,30 @@ footer {
   <div id="gallery-grid"></div>
 </section>
 
+<section id="before-after">
+  <div class="section-header reveal">
+    <h2>Before &amp; After</h2>
+    <p>Real transformations — drag the handle to reveal the difference</p>
+  </div>
+  <div id="ba-grid" class="ba-grid"></div>
+</section>
+
+<div id="ba-lightbox">
+  <button id="ba-lb-close" onclick="closeBALightbox()" aria-label="Close">&times;</button>
+  <div class="ba-lb-inner">
+    <div class="ba-slider" id="ba-lb-slider">
+      <div class="ba-before"><img id="ba-lb-before" src="" alt="Before"></div>
+      <div class="ba-after"><img id="ba-lb-after" src="" alt="After"></div>
+      <div class="ba-handle"></div>
+      <div class="ba-labels">
+        <span class="ba-label">Before</span>
+        <span class="ba-label">After</span>
+      </div>
+      <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Reveal after photo">
+    </div>
+  </div>
+</div>
+
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
   <img src="" alt="" id="lightbox-img">
@@ -1352,33 +1634,186 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 reveals.forEach(reveal => revealObserver.observe(reveal));
 
-// Gallery loader
+// Gallery loader — lists blobs directly from Azure gallery container
 async function loadGallery() {
   const grid = document.getElementById('gallery-grid');
   if (!grid) return;
+  const EMPTY = '<p style="opacity:.5;text-align:center;grid-column:1/-1;padding:3rem;">Gallery coming soon — check back after launch.</p>';
+  const SA = 'rivalinrenovations';
+  const SAS = 'se=2031-01-01&sp=rl&spr=https&sv=2022-11-02&sr=c&sig=8kXsqS%2FJLAiAsZUlD%2B4%2BDK1KzV5WfAvdWSEXfbVXVdc%3D';
   try {
-    const r = await fetch('/api/projects/proj_4e713c3e/gallery-manifest');
-    if (!r.ok) { 
-      grid.innerHTML = '<p style="opacity:.5;text-align:center;grid-column:1/-1;padding:3rem;">Gallery coming soon — check back after launch.</p>'; 
-      return; 
-    }
-    const { photos } = await r.json();
-    if (!photos || !photos.length) { 
-      grid.innerHTML = '<p style="opacity:.5;text-align:center;grid-column:1/-1;padding:3rem;">Gallery coming soon — check back after launch.</p>'; 
-      return; 
-    }
-    grid.innerHTML = photos.map(p => `<div class="gallery-item"><img src="${p.url}" alt="${p.name || ''}" loading="lazy" /></div>`).join('');
-    
-    // Add lightbox click handlers
+    const listUrl = `https://${SA}.blob.core.windows.net/gallery?restype=container&comp=list&${SAS}`;
+    const r = await fetch(listUrl);
+    if (!r.ok) { grid.innerHTML = EMPTY; return; }
+    const xml = await r.text();
+    const doc = new DOMParser().parseFromString(xml, 'application/xml');
+    const blobs = Array.from(doc.querySelectorAll('Blob'))
+      .map(b => b.querySelector('Name').textContent)
+      .filter(n => /\.(jpe?g|png|webp|gif)$/i.test(n));
+    if (!blobs.length) { grid.innerHTML = EMPTY; return; }
+    grid.innerHTML = blobs.map(name => {
+      const src = `https://${SA}.blob.core.windows.net/gallery/${encodeURIComponent(name)}`;
+      const alt = name.replace(/\.[^.]+$/, '').replace(/[_-]/g, ' ');
+      return `<div class="gallery-item"><img src="${src}" alt="${alt}" loading="lazy"></div>`;
+    }).join('');
     document.querySelectorAll('.gallery-item img').forEach(img => {
       img.addEventListener('click', () => openLightbox(img.src, img.alt));
     });
-  } catch { 
-    grid.innerHTML = '<p style="opacity:.5;text-align:center;grid-column:1/-1;padding:3rem;">Gallery coming soon — check back after launch.</p>'; 
-  }
+  } catch { grid.innerHTML = EMPTY; }
 }
 
 loadGallery();
+
+// Before & After loader + slider
+(function () {
+  const EMPTY_BA = '<p class="ba-empty">Before &amp; after photos coming soon — check back after launch.</p>';
+
+  function buildSlider(pair, index) {
+    const id = 'ba-' + index;
+    const before = String(pair.before || '').replace(/[<>"']/g, '');
+    const after  = String(pair.after  || '').replace(/[<>"']/g, '');
+    const label  = String(pair.label  || '').replace(/[<>"]/g, '');
+    const days   = pair.durationDays ? parseInt(pair.durationDays, 10) : null;
+
+    return `
+      <div class="ba-pair reveal" data-before="${before}" data-after="${after}" onclick="window.openBALightbox(this)">
+        <div class="ba-slider" id="${id}">
+          <div class="ba-before"><img src="${before}" alt="Before — ${label}" loading="lazy"></div>
+          <div class="ba-after"><img src="${after}" alt="After — ${label}" loading="lazy"></div>
+          <div class="ba-handle"></div>
+          <div class="ba-labels">
+            <span class="ba-label">Before</span>
+            <span class="ba-label">After</span>
+          </div>
+          <input type="range" class="ba-range" min="0" max="100" value="0"
+                 aria-label="Reveal after photo for ${label}">
+        </div>
+        ${label || days ? `<div class="ba-caption">
+          ${label ? `<span class="ba-caption-text">${label}</span>` : ''}
+          ${days  ? `<span class="ba-duration">${days} days</span>` : ''}
+        </div>` : ''}
+      </div>`;
+  }
+
+  function wireSlider(el) {
+    const afterEl  = el.querySelector('.ba-after');
+    const handleEl = el.querySelector('.ba-handle');
+    const range    = el.querySelector('.ba-range');
+    let animated = false;
+
+    function setPos(pct) {
+      const p = Math.max(0, Math.min(100, pct));
+      afterEl.style.clipPath  = `inset(0 ${100 - p}% 0 0)`;
+      handleEl.style.left = p + '%';
+      range.value = p;
+    }
+
+    range.addEventListener('input', () => setPos(parseFloat(range.value)));
+
+    // Scroll-into-view: animate 0 → 50 once
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          afterEl.classList.add('animating');
+          requestAnimationFrame(() => setPos(50));
+          afterEl.addEventListener('transitionend', () => {
+            afterEl.classList.remove('animating');
+          }, { once: true });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(el);
+  }
+
+  async function loadBeforeAfter() {
+    const grid = document.getElementById('ba-grid');
+    if (!grid) return;
+    const SA  = 'rivalinrenovations';
+    const SAS = 'se=2031-01-01&sp=rl&spr=https&sv=2022-11-02&sr=c&sig=%2FV2s9eS%2BxLTVapxs2aFWkjb16neWBUej%2FhBpkvHb8EQ%3D';
+    try {
+      const listUrl = `https://${SA}.blob.core.windows.net/before-after?restype=container&comp=list&${SAS}`;
+      const r = await fetch(listUrl);
+      if (!r.ok) { grid.innerHTML = EMPTY_BA; return; }
+      const xml = await r.text();
+      const doc = new DOMParser().parseFromString(xml, 'application/xml');
+      const names = Array.from(doc.querySelectorAll('Name'))
+        .map(n => n.textContent)
+        .filter(n => /\.(jpe?g|png|webp)$/i.test(n));
+
+      // Group by slug, then pair by number
+      const projects = {};
+      names.forEach(name => {
+        const m = name.match(/^(.+?)_(\d+)-(before|after)\./i);
+        if (!m) return;
+        const [, slug, num, role] = m;
+        if (!projects[slug]) projects[slug] = {};
+        if (!projects[slug][num]) projects[slug][num] = {};
+        projects[slug][num][role] = `https://${SA}.blob.core.windows.net/before-after/${encodeURIComponent(name)}`;
+      });
+
+      const slugs = Object.keys(projects).sort();
+      if (!slugs.length) { grid.innerHTML = EMPTY_BA; return; }
+
+      let sliderIndex = 0;
+      grid.innerHTML = slugs.map(slug => {
+        const label = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        const pairs = Object.keys(projects[slug]).sort((a,b) => a - b);
+        const sliders = pairs
+          .filter(num => projects[slug][num].before && projects[slug][num].after)
+          .map(num => buildSlider({
+            before: projects[slug][num].before,
+            after:  projects[slug][num].after
+          }, sliderIndex++))
+          .join('');
+        if (!sliders) return '';
+        return `<div class="ba-project-group">
+          <h3 class="ba-project-heading">${label}</h3>
+          <div class="ba-project-sliders">${sliders}</div>
+        </div>`;
+      }).join('');
+
+      grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      // Thumbnails: disable range drag (interaction is in lightbox)
+      grid.querySelectorAll('.ba-range').forEach(r => r.style.pointerEvents = 'none');
+      grid.querySelectorAll('.ba-slider').forEach(wireSlider);
+    } catch { grid.innerHTML = EMPTY_BA; }
+  }
+
+  // ── BA Lightbox ──────────────────────────────────────────────────────────────
+  let lbWired = false;
+
+  window.openBALightbox = function(pairEl) {
+    document.getElementById('ba-lb-before').src = pairEl.dataset.before;
+    document.getElementById('ba-lb-after').src  = pairEl.dataset.after;
+    const lb = document.getElementById('ba-lightbox');
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    const sliderEl = document.getElementById('ba-lb-slider');
+    const afterEl  = sliderEl.querySelector('.ba-after');
+    const handleEl = sliderEl.querySelector('.ba-handle');
+    const range    = sliderEl.querySelector('.ba-range');
+    afterEl.style.clipPath = 'inset(0 50% 0 0)';
+    handleEl.style.left = '50%';
+    range.value = 50;
+    if (!lbWired) { wireSlider(sliderEl); lbWired = true; }
+  };
+
+  window.closeBALightbox = function() {
+    document.getElementById('ba-lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  document.getElementById('ba-lightbox').addEventListener('click', e => {
+    if (e.target === document.getElementById('ba-lightbox')) window.closeBALightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') window.closeBALightbox();
+  });
+
+  loadBeforeAfter();
+}());
 
 // Lightbox functions
 function openLightbox(src, alt) {

@@ -11,7 +11,7 @@ rebuild it.
 | | |
 |--|--|
 | Business | **Rivalin Renovations** |
-| Owner | Sheldon |
+| Owner | Paul |
 | Contact | sheldon@rivalinrenovations.com |
 | Location | Winnipeg, Manitoba |
 | Tagline | *Detailed home renovations in Winnipeg — 28 years of craftsmanship.* |

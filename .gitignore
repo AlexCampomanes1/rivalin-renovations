@@ -3,3 +3,6 @@ node_modules/
 *.log
 .vscode/
 .idea/
+
+# Contains live Azure SAS tokens — never commit
+admin.html

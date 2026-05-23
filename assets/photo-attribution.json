@@ -1,0 +1,65 @@
+[
+  {
+    "file": "assets/hero/kitchen-minimal-1.jpeg",
+    "pexelsId": "20290961",
+    "photographer": "Алан Албегов",
+    "sourceUrl": "https://www.pexels.com/photo/20290961/",
+    "license": "Pexels License"
+  },
+  {
+    "file": "assets/hero/kitchen-wood-2.jpeg",
+    "pexelsId": "12119223",
+    "photographer": "Curtis Adams",
+    "sourceUrl": "https://www.pexels.com/photo/12119223/",
+    "license": "Pexels License"
+  },
+  {
+    "file": "assets/hero/kitchen-contemporary-3.jpeg",
+    "pexelsId": "6508353",
+    "photographer": "Max Vakhtbovych",
+    "sourceUrl": "https://www.pexels.com/photo/6508353/",
+    "license": "Pexels License"
+  },
+  {
+    "file": "assets/services/bathroom-marble.jpeg",
+    "pexelsId": "10827406",
+    "photographer": "Curtis Adams",
+    "sourceUrl": "https://www.pexels.com/photo/10827406/",
+    "license": "Pexels License"
+  },
+  {
+    "file": "assets/services/kitchen-modern.jpeg",
+    "pexelsId": "6489127",
+    "photographer": "Max Vakhtbovych",
+    "sourceUrl": "https://www.pexels.com/photo/6489127/",
+    "license": "Pexels License"
+  },
+  {
+    "file": "assets/services/bathroom-elegant.jpeg",
+    "pexelsId": "8146152",
+    "photographer": "Max Vakhtbovych",
+    "sourceUrl": "https://www.pexels.com/photo/8146152/",
+    "license": "Pexels License"
+  },
+  {
+    "file": "assets/highlights/bathroom-glass-shower.jpeg",
+    "pexelsId": "6585603",
+    "photographer": "Max Vakhtbovych",
+    "sourceUrl": "https://www.pexels.com/photo/6585603/",
+    "license": "Pexels License"
+  },
+  {
+    "file": "assets/highlights/bathroom-modern.jpeg",
+    "pexelsId": "6980672",
+    "photographer": "Max Vakhtbovych",
+    "sourceUrl": "https://www.pexels.com/photo/6980672/",
+    "license": "Pexels License"
+  },
+  {
+    "file": "assets/highlights/kitchen-bright.jpeg",
+    "pexelsId": "5524068",
+    "photographer": "Clay Elliot",
+    "sourceUrl": "https://www.pexels.com/photo/5524068/",
+    "license": "Pexels License"
+  }
+]
