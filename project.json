@@ -1,0 +1,124 @@
+{
+  "projectId": "proj_4e713c3e",
+  "businessName": "Rivalin Renovations",
+  "businessType": "Other",
+  "location": "Winnipeg, Manitoba",
+  "whatsapp": null,
+  "services": "Full home renovations \u2014 kitchens, bathrooms, basements, and general remodeling",
+  "tone": "Professional",
+  "colorPreference": "clean & minimal",
+  "specialRequests": "Hero mood: clean, modern, bold and professional\nHero scene: finished interiors would like beautiful, image of beautiful interiors, new renovations and contemporary Stiles\nColor vibe: clean & minimal\nTagline: Detailed home renovations in Winnipeg \u2014 28 years of craftsmanship.\nStory/about: Started building decks and fences during university, then moved to Calgary doing home renos. Returned to Winnipeg and built my own company \u2014 meticulous work and helping customers see the vision we create together.\nBio: Started building decks and fences during university, then moved to Calgary doing home renos. Returned to Winnipeg and built my own company \u2014 meticulous work and helping customers see the vision we create together.\n\nInclude a QR code to the sample site. Indicat this is temporary until deployed",
+  "tier": 1,
+  "existingUrl": null,
+  "competitorUrl": null,
+  "inspirationUrl": null,
+  "contactName": "Sheldon",
+  "contactEmail": "sheldon@rivalinrenovations.com",
+  "heroMood": "clean, modern, bold and professional",
+  "aboutText": "Started building decks and fences during university, then moved to Calgary doing home renos. Returned to Winnipeg and built my own company \u2014 meticulous work and helping customers see the vision we create together.",
+  "tripadvisorUrl": null,
+  "googleReviewsUrl": null,
+  "highlightCaptions": null,
+  "showHighlights": true,
+  "highlightDescription": "Before and after shots of completed projects",
+  "galleryIncluded": true,
+  "galleryTitle": "Our Work",
+  "galleryStyle": "tile",
+  "galleryPin": null,
+  "tagline": "Detailed home renovations in Winnipeg \u2014 28 years of craftsmanship.",
+  "hours": null,
+  "instagram": null,
+  "primaryCta": null,
+  "languages": null,
+  "packages": null,
+  "source": "ai-intake",
+  "status": "built",
+  "createdAt": "2026-05-22T20:12:49.460Z",
+  "updatedAt": "2026-05-23T01:30:24.555Z",
+  "tickets": [],
+  "buildError": null,
+  "logoUrl": "https://ultraflowuploads.blob.core.windows.net/uploads/proj_4e713c3e/logo-1779489623548.jpeg",
+  "logoFilename": "logo-1779489623548.jpeg",
+  "logoHistory": [
+    "logo-1779489623548.jpeg"
+  ],
+  "lastBuildPhotos": [
+    {
+      "url": "https://images.pexels.com/photos/20290961/pexels-photo-20290961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Sleek modern kitchen featuring white cabinets, wooden accents, and a spacious design highlighting minimalist aesthetics.",
+      "photographer": "\u0410\u043b\u0430\u043d \u0410\u043b\u0431\u0435\u0433\u043e\u0432"
+    },
+    {
+      "url": "https://images.pexels.com/photos/12119223/pexels-photo-12119223.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Spacious modern kitchen featuring wooden cabinets and stainless steel appliances with elegant lighting.",
+      "photographer": "Curtis Adams"
+    },
+    {
+      "url": "https://images.pexels.com/photos/6508353/pexels-photo-6508353.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Modern kitchen with contemporary interior with metal geometrical lamps and new white cabinets",
+      "photographer": "Max Vakhtbovych"
+    },
+    {
+      "url": "https://images.pexels.com/photos/10827406/pexels-photo-10827406.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Spacious bathroom featuring elegant marble shower and dark cabinetry.",
+      "photographer": "Curtis Adams"
+    },
+    {
+      "url": "https://images.pexels.com/photos/6489127/pexels-photo-6489127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Interior of modern kitchen with faucet on gray counter and cupboards with illumination near electric cooker in contemporary apartment at home",
+      "photographer": "Max Vakhtbovych"
+    },
+    {
+      "url": "https://images.pexels.com/photos/8146152/pexels-photo-8146152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Spacious and elegant marble bathroom featuring a modern bathtub, sink, and glass window.",
+      "photographer": "Max Vakhtbovych"
+    },
+    {
+      "url": "https://images.pexels.com/photos/6585603/pexels-photo-6585603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Glass shower cabin in contemporary bathroom with white ceramic toilet bowl and sink and tiled walls decorated with bright lights",
+      "photographer": "Max Vakhtbovych"
+    },
+    {
+      "url": "https://images.pexels.com/photos/6980672/pexels-photo-6980672.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Modern bathroom interior with shower room against bottles of perfumes and washbasin under mirror reflecting shiny lamp in house",
+      "photographer": "Max Vakhtbovych"
+    },
+    {
+      "url": "https://images.pexels.com/photos/5524068/pexels-photo-5524068.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Bright and spacious kitchen with white cabinetry and sleek appliances.",
+      "photographer": "Clay Elliot"
+    },
+    {
+      "url": "https://images.pexels.com/photos/6835130/pexels-photo-6835130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Contemporary kitchen with stainless steel appliances and white cabinets.",
+      "photographer": "Curtis Adams"
+    },
+    {
+      "url": "https://images.pexels.com/photos/7168021/pexels-photo-7168021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "source": "pexels",
+      "fromLastBuild": true,
+      "alt": "Stylish modern kitchen with white cabinets, wooden shelves, and stainless steel appliances.",
+      "photographer": "Curtis Adams"
+    }
+  ]
+}
