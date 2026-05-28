@@ -111,24 +111,31 @@ For the upcoming gallery + before/after work, plan to:
    regenerates the manifests (purely client-side, downloads the JSON for
    manual commit — or wire to a tiny Node endpoint later)
 
-## 6. Hosting — when ready
+## 6. Hosting — current state
 
-Pick one:
+**Live at:** `https://rivalinrenovations.z9.web.core.windows.net/`
 
-| Option | Pro | Con |
-|--|--|--|
-| **AFD subdomain** `rivalin.accelerateiq.ca` | Same infra as Ultra Flow, instant | Still on AccelerateIQ DNS |
-| **Client domain** `rivalinrenovations.com` | Real ownership | Need DNS coordination |
-| **Static blob + custom domain** | Cheap, no server | Need cert + DNS |
-| **Netlify / Cloudflare Pages** | Free tier, git-driven | New vendor |
+Azure Blob static website hosting:
+- Storage account: `rivalinrenovations` (RG: `rg-ultraflow-clients`, Canada Central)
+- Container: `$web`, `indexDocument: index.html`
+- Static website: enabled
 
-The site is fully static — any of the above works. There is no backend.
+To redeploy after edits:
+```bash
+source ~/.azure-cli-venv/bin/activate
+az storage blob upload \
+  --account-name rivalinrenovations \
+  --container-name '$web' \
+  --name index.html \
+  --file ~/Repositories/rivalin-renovations/index.html \
+  --content-type "text/html" \
+  --auth-mode key \
+  --overwrite
+```
 
-When hosted:
-- Update the footer's *"(Site not yet deployed — temporary preview)"* line —
-  remove the line entirely or replace with the live domain.
-- Decide on the QR code: keep ("Powered by Ultra Flow", small) as soft
-  attribution, or remove for a fully white-label client-owned look.
+For a custom domain (`rivalinrenovations.com`), add a CNAME + Azure CDN endpoint.
+
+The site is fully static — no backend.
 
 ## 7. Things to NOT do
 
